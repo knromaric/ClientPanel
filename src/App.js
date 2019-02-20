@@ -7,6 +7,7 @@ import Dashboard from './components/layout/Dashboard';
 import AddClient from './components/clients/AddClient';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import DetailsClient from './components/clients/DetailsClient';
+import EditClient from './components/clients/EditClient';
 
 
 
@@ -23,6 +24,8 @@ class App extends Component {
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/client/add" component={AddClient} />
                 <Route exact path="/client/:id" component={DetailsClient} />
+                <Route exact path="/client/edit/:id" component={EditClient} />
+
               </Switch>
             </div>
           </div>
