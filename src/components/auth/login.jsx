@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { firebaseConnect } from "react-redux-firebase";
 
-class login extends Component {
+class Login extends Component {
   state = {
     email: "",
     password: ""
@@ -17,11 +17,11 @@ class login extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    const { firebase, history } = this.props;
+    const { firebase } = this.props;
     const { email, password } = this.state;
 
     firebase.login({ email, password })
-      .catch(error=>alert('Invalid Login Credentials'));
+      .catch(alert('Invalid Login Credentials'));
     
   };
 
@@ -73,7 +73,8 @@ class login extends Component {
   }
 }
 
-login.propTypes = {
+Login.propTypes = {
   firebase: PropTypes.object.isRequired
 };
-export default firebaseConnect()(login);
+
+export default firebaseConnect()(Login);
