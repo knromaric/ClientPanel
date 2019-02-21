@@ -21,7 +21,7 @@ class Login extends Component {
     const { email, password } = this.state;
 
     firebase.login({ email, password })
-      .catch(alert('Invalid Login Credentials'));
+      .catch(()=>alert('Invalid Login Credentials'));
     
   };
 

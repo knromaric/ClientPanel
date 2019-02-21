@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import DetailsClient from './components/clients/DetailsClient';
 import EditClient from './components/clients/EditClient';
 import Login from './components/auth/login';
+import {UserIsNotAuthenticated, UserIsAuthenticated} from './helpers/auth';
 
 class App extends Component {
   render() {
@@ -19,11 +20,11 @@ class App extends Component {
             <AppNavbar/>
             <div className="container">
               <Switch>
-                <Route exact path="/" component={Dashboard} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/client/add" component={AddClient} />
-                <Route exact path="/client/:id" component={DetailsClient} />
-                <Route exact path="/client/edit/:id" component={EditClient} />
+                <Route exact path="/" component={UserIsAuthenticated(Dashboard)} />
+                <Route exact path="/login" component={UserIsNotAuthenticated(Login)} />
+                <Route exact path="/client/add" component={UserIsAuthenticated(AddClient)} />
+                <Route exact path="/client/:id" component={UserIsAuthenticated(DetailsClient)} />
+                <Route exact path="/client/edit/:id" component={UserIsAuthenticated(EditClient)} />
 
               </Switch>
             </div>
