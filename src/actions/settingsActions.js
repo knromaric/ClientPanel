@@ -6,7 +6,7 @@ import {
 
 
 export const setDisableBalanceOnAdd=()=>{
-  const settings = toggleState('disableBalanceOnAdd');
+  const settings = toggleSettingsState('disableBalanceOnAdd');
   return{
     type: DISABLE_BALANCE_ON_ADD,
     payload: settings.disableBalanceOnAdd
@@ -14,7 +14,7 @@ export const setDisableBalanceOnAdd=()=>{
 }
 
 export const setDisableBalanceOnEdit=()=>{
-  const settings = toggleState('disableBalanceOnEdit');
+  const settings = toggleSettingsState('disableBalanceOnEdit');
   return{
     type: DISABLE_BALANCE_ON_EDIT,
     payload: settings.disableBalanceOnEdit
@@ -22,14 +22,14 @@ export const setDisableBalanceOnEdit=()=>{
 }
 
 export const setAllowRegistration=()=>{
-  const settings = toggleState('allowRegistration');
+  const settings = toggleSettingsState('allowRegistration');
   return{
     type: ALLOW_REGISTRATION,
     payload: settings.allowRegistration
   }
 }
 
-function toggleState(state) {
+function toggleSettingsState(state) {
   //get settings from localstorage
   const settings = JSON.parse(localStorage.getItem('settings'));
   //toggle
